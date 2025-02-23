@@ -1,7 +1,4 @@
-import { ServerFactory } from './factories/ServerFactory';
-
-import dotenv from 'dotenv';
-dotenv.config();
+import { ServerFactory } from './factories/ServerFactory'
 
 try {
     const server = ServerFactory.createServer('express');

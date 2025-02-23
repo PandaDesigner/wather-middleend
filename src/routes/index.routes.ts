@@ -11,7 +11,7 @@ export class IndexRoutes {
     }
 
     private initializeRoutes(): void {
-        this.router.get("/", (req, res) => {
+        this.router.get("/", (_req, res) => {
             res.send("Hello World!");
         });
 

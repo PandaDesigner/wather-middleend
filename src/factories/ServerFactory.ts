@@ -1,9 +1,8 @@
-import {Server} from "../server/Server";
-import {ExpressServer} from "../server/ExpressServer";
+import { ExpressServer } from "../server/ExpressServer";
 
 
 export class ServerFactory {
-    public static createServer(type:string): ExpressServer {
+    public static createServer(type: string): ExpressServer {
         switch (type.toLowerCase()) {
             case "express":
                 return new ExpressServer();

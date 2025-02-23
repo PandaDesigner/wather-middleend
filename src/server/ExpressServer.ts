@@ -1,9 +1,7 @@
-import express, {Application} from "express";
-import {IndexRoutes} from "../routes/index.routes";
-import {Server} from "./Server";
-
-
-export class ExpressServer implements Server{
+import express, { Application } from "express";
+import { IndexRoutes } from "../routes/index.routes";
+import { Server } from "./Server";
+export class ExpressServer implements Server {
     private app: Application;
     private port: number;
 
@@ -25,7 +23,8 @@ export class ExpressServer implements Server{
     }
 
     public start(): void {
-        this.app.listen(this.port, ()=>{
+
+        this.app.listen(this.port, () => {
             console.log(`Express server listening on port: ${this.port}`);
         });
     }

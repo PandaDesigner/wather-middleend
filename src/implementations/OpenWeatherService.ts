@@ -1,13 +1,17 @@
 import axios from 'axios';
-import {Weather} from "../inferfaces/Weather.interface";
-import {IWeatherService} from "../inferfaces/WeatherService.interface";
+import { Weather } from "../inferfaces/Weather.interface";
+import { IWeatherService } from "../inferfaces/WeatherService.interface";
+import dotenv from 'dotenv';
 
+dotenv.config();
+
+console.log(process.env.WEATHER_API_KEY)
 export class OpenWeatherService implements IWeatherService {
     private readonly apiKey: string;
     private readonly baseUrl: string;
 
     constructor() {
-        this.apiKey = process.env.WEATHER_API_KEY || '280342efc93e4be3f81be59112da6de8';
+        this.apiKey = process.env.WEATHER_API_KEY || '';
         // Corregir la URL base
         this.baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
     }
@@ -20,7 +24,7 @@ export class OpenWeatherService implements IWeatherService {
                     q: city,
                     appid: this.apiKey,
                     units: 'metric',
-                    lang:'es'
+                    lang: 'es'
                 }
             });
 
