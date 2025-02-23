@@ -1,23 +1,11 @@
-import {WeatherController} from "../controllers/WeatherController";
-import {Router} from "express";
+import { Router } from "express";
+import { OpenWeatherService } from "../implementations/OpenWeatherService";
+import { WeatherController } from "../controllers/WeatherController";
 
+const router = Router();
+const weatherService = new OpenWeatherService();
+const weatherController = new WeatherController(weatherService);
 
-export class WeatherRoutes {
-    private readonly router: Router;
-    private readonly  weatherController: WeatherController;
+router.get("/weather", (req, res) => weatherController.getWeatherByCity(req, res));
 
-    constructor() {
-        this.router = Router();
-        this.weatherController = new WeatherController();
-        this.initializeRoutes();
-    }
-
-    private initializeRoutes():void {
-        this.router.get('/weather', (req, res)=>
-            this.weatherController.getWeather(req, res)
-        );
-    }
-    public getRouter(): Router {
-        return this.router;
-    }
-}
+export default router;

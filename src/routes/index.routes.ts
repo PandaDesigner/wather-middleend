@@ -1,5 +1,5 @@
-import {Router} from "express";
-import {WeatherRoutes} from "./weather.routes";
+import { Router } from "express";
+import WeatherRoutes from "./weather.routes";
 
 
 export class IndexRoutes {
@@ -15,11 +15,11 @@ export class IndexRoutes {
             res.send("Hello World!");
         });
 
-        const weatherRoutes = new WeatherRoutes();
-        this.router.use("/api", weatherRoutes.getRouter());
+        const weatherRoutes = WeatherRoutes
+        this.router.use("/api", weatherRoutes);
     }
 
-    public getRouter():Router {
+    public getRouter(): Router {
         return this.router;
     }
 }
