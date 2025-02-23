@@ -4,8 +4,6 @@ import { IWeatherService } from "../inferfaces/WeatherService.interface";
 import dotenv from 'dotenv';
 
 dotenv.config();
-
-console.log(process.env.WEATHER_API_KEY)
 export class OpenWeatherService implements IWeatherService {
     private readonly apiKey: string;
     private readonly baseUrl: string;

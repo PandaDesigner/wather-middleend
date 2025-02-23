@@ -23,9 +23,8 @@ export class ExpressServer implements Server {
     }
 
     public start(): void {
-
         this.app.listen(this.port, () => {
-            console.log(`Express server listening on port: ${this.port}`);
+            console.log(`Express server listening on port: http//localhost:${this.port}`);
         });
     }
 
